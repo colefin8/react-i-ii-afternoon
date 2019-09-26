@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import Movies from "./Movies";
 
 class Person extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const person = this.props.data[this.props.index];
     return (

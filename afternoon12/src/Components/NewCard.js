@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class NewCard extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div>

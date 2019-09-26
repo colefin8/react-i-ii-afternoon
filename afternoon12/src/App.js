@@ -44,7 +44,6 @@ class App extends Component {
         this.state.movie3Input
       ]
     };
-    console.log(newPerson);
     let arr = this.state.list;
     arr.splice(this.state.index, 1, newPerson);
 
@@ -55,8 +54,12 @@ class App extends Component {
 
   handleDelete = list => {
     const tempArray = list;
-    tempArray.splice(this.state.index, 1);
-    this.setState({ list: tempArray });
+    if (tempArray.length === 1) {
+      console.log("can't delete");
+    } else {
+      tempArray.splice(this.state.index, 1);
+      this.setState({ list: tempArray });
+    }
   };
 
   handleStateChange = (value, name) => {
@@ -64,6 +67,7 @@ class App extends Component {
   };
 
   handleNew = () => {
+    let emptyBool = true;
     const nameArr = this.state.userNameInput.split(" ");
     const newPerson = {
       id: this.state.list.length,
@@ -78,8 +82,31 @@ class App extends Component {
         this.state.movie3Input
       ]
     };
-    this.setState({ list: [...this.state.list, newPerson] });
-    this.setState({ index: this.state.list.length });
+
+    ///This prevents city, country, employer, and title from being blank
+    for (let key in newPerson) {
+      if (newPerson[key] === "") {
+        emptyBool = false;
+        console.log("empty fields");
+      }
+    }
+
+    for (let key in newPerson.name) {
+      if (newPerson.name[key] === "") {
+        emptyBool = false;
+        console.log("empty fields");
+      }
+    }
+    newPerson.favoriteMovies.forEach(element => {
+      if (element === "") {
+        emptyBool = false;
+      }
+    });
+
+    if (emptyBool === true) {
+      this.setState({ list: [...this.state.list, newPerson] });
+      this.setState({ index: this.state.list.length });
+    }
   };
 
   handleNext = index => {

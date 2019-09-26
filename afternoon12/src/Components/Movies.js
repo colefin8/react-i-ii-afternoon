@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Movies extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     let tempArray = [...this.props.movieData];
     return (
