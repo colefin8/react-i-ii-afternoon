@@ -15,14 +15,21 @@ class NewCard extends Component {
               <p>Name: </p>
               <input
                 className="input"
-                onChange={e => this.props.handleNameInput(e.target.value)}
+                onChange={e =>
+                  this.props.handleStateChange(e.target.value, "userNameInput")
+                }
               />
             </div>
             <div className="inputBox">
               <p>Hometown: </p>
               <input
                 className="input"
-                onChange={e => this.props.handleHometownInput(e.target.value)}
+                onChange={e =>
+                  this.props.handleStateChange(
+                    e.target.value,
+                    "userHometownInput"
+                  )
+                }
               />
             </div>
             <div className="inputBox">
@@ -30,7 +37,10 @@ class NewCard extends Component {
               <input
                 className="input"
                 onChange={e =>
-                  this.props.handleHomeCountryInput(e.target.value)
+                  this.props.handleStateChange(
+                    e.target.value,
+                    "userHomeCountryInput"
+                  )
                 }
               />
             </div>
@@ -38,14 +48,21 @@ class NewCard extends Component {
               <p>Employer: </p>
               <input
                 className="input"
-                onChange={e => this.props.handleEmployerInput(e.target.value)}
+                onChange={e =>
+                  this.props.handleStateChange(
+                    e.target.value,
+                    "userEmployerInput"
+                  )
+                }
               />
             </div>
             <div className="inputBox">
               <p>Title: </p>
               <input
                 className="input"
-                onChange={e => this.props.handleTitleInput(e.target.value)}
+                onChange={e =>
+                  this.props.handleStateChange(e.target.value, "userTitleInput")
+                }
               />
             </div>
             <div className="inputBox">
@@ -53,15 +70,21 @@ class NewCard extends Component {
               <div className="movieInputs">
                 <input
                   className="input"
-                  onChange={e => this.props.handleMovie1Input(e.target.value)}
+                  onChange={e =>
+                    this.props.handleStateChange(e.target.value, "movie1Input")
+                  }
                 />
                 <input
                   className="input"
-                  onChange={e => this.props.handleMovie2Input(e.target.value)}
+                  onChange={e =>
+                    this.props.handleStateChange(e.target.value, "movie2Input")
+                  }
                 />
                 <input
                   className="input"
-                  onChange={e => this.props.handleMovie3Input(e.target.value)}
+                  onChange={e =>
+                    this.props.handleStateChange(e.target.value, "movie3Input")
+                  }
                 />
               </div>
             </div>

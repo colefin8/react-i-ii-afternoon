@@ -59,36 +59,8 @@ class App extends Component {
     this.setState({ list: tempArray });
   };
 
-  handleNameInput = value => {
-    this.setState({ userNameInput: value });
-  };
-
-  handleHometownInput = value => {
-    this.setState({ userHometownInput: value });
-  };
-
-  handleHomeCountryInput = value => [
-    this.setState({ userHomeCountryInput: value })
-  ];
-
-  handleEmployerInput = value => {
-    this.setState({ userEmployerInput: value });
-  };
-
-  handleTitleInput = value => {
-    this.setState({ userTitleInput: value });
-  };
-
-  handleMovie1Input = value => {
-    this.setState({ movie1Input: value });
-  };
-
-  handleMovie2Input = value => {
-    this.setState({ movie2Input: value });
-  };
-
-  handleMovie3Input = value => {
-    this.setState({ movie3Input: value });
+  handleStateChange = (value, name) => {
+    this.setState({ [name]: value });
   };
 
   handleNew = () => {
@@ -107,6 +79,7 @@ class App extends Component {
       ]
     };
     this.setState({ list: [...this.state.list, newPerson] });
+    this.setState({ index: this.state.list.length });
   };
 
   handleNext = index => {
@@ -156,18 +129,7 @@ class App extends Component {
             </button>
           </nav>
 
-          <NewCard
-            handleNameInput={this.handleNameInput}
-            handleHometownInput={this.handleHometownInput}
-            handleHomeCountryInput={this.handleHomeCountryInput}
-            handleEmployerInput={this.handleEmployerInput}
-            handleTitleInput={this.handleTitleInput}
-            handleMovie1Input={this.handleMovie1Input}
-            handleMovie2Input={this.handleMovie2Input}
-            handleMovie3Input={this.handleMovie3Input}
-            handleNew={this.handleNew}
-            handleEdit={this.handleEdit}
-          />
+          <NewCard handleStateChange={this.handleStateChange} />
         </div>
       </div>
     );
